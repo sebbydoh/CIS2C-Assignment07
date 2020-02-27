@@ -1,3 +1,4 @@
+"use strict";
 // 1. Create a page that displays a balloon (using the balloon emoji, 🎈). When you press
 // the up arrow, it should inflate (grow) 10 percent, and when you press the down arrow,
 // it should deflate (shrink) 10 percent. You can control the size of text (emoji are
@@ -15,19 +16,22 @@ let balloon = document.getElementById("balloon");
 let balloonSize = 100;
 
 function balloonFunction(event) {
-    
-    if (event.key == "ArrowUp") {
-        event.preventDefault();
-        balloonSize *= 1.1;
-        balloon.style.fontSize = balloonSize + "%";
-    } else if (event.key == "ArrowDown") {
-        event.preventDefault();
-        balloonSize *= 0.9;
-        balloon.style.fontSize = balloonSize + "%";
-    }
+  if (event.key == "ArrowUp") {
+    event.preventDefault();
+    balloonSize *= 1.1;
+    balloon.style.fontSize = balloonSize + "%";
+  } else if (event.key == "ArrowDown") {
+    event.preventDefault();
+    balloonSize *= 0.9;
+    balloon.style.fontSize = balloonSize + "%";
+  }
+  if (balloonSize > 450) {
+    balloon.textContent = "💥";
+    window.removeEventListener("keydown", balloonFunction);
+  }
 }
-window.addEventListener("keydown", event => balloonFunction(event));
 
+window.addEventListener("keydown", balloonFunction);
 // 2. The index.html page has a tabbed layout. Make the default state of the layout show
 // the first tab, and make it so that when you click the links at the top the correct
 // tab's contents are displayed and the others are hidden. Prevent the default action of
@@ -35,3 +39,27 @@ window.addEventListener("keydown", event => balloonFunction(event));
 // function as expected. There are many ways to accomplish this task, but you will need
 // to at minimum add listeners to each link and toggle the display of the tab contents.
 // Hint: display: none; hides an element, and display: block; will bring it
+const tabOne = document.getElementById("tab1Link");
+const tabTwo = document.getElementById("tab2Link");
+const tabThree = document.getElementById("tab3Link");
+
+function defaultHiddenTabs() {
+    document.getElementById("tab2").style.display = "none";
+    document.getElementById("tab3").style.display = "none";
+}
+
+function tabFunction(event){
+if (event.click == "tabOne") {
+    console.log("you clicked tabone");
+}
+if (event.click == "tabTwo") {
+    console.log("you clicked tabtwo");
+}
+if (event.click == "tabThree") {
+    console.log("you clicked tabthree");
+}
+}
+
+tabOne.addEventListener("click", tabFunction);
+tabTwo.addEventListener("click", tabFunction);
+tabThree.addEventListener("click", tabFunction);

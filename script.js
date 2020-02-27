@@ -50,12 +50,15 @@ function defaultHiddenTabs() {
 
 function tabFunction(event){
 if (event.click == "tabOne") {
+    event.preventDefault();
     console.log("you clicked tabone");
 }
 if (event.click == "tabTwo") {
+    event.preventDefault();
     console.log("you clicked tabtwo");
 }
 if (event.click == "tabThree") {
+    event.preventDefault();
     console.log("you clicked tabthree");
 }
 }

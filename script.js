@@ -39,30 +39,30 @@ window.addEventListener("keydown", balloonFunction);
 // function as expected. There are many ways to accomplish this task, but you will need
 // to at minimum add listeners to each link and toggle the display of the tab contents.
 // Hint: display: none; hides an element, and display: block; will bring it
-const tabOne = document.getElementById("tab1Link");
-const tabTwo = document.getElementById("tab2Link");
-const tabThree = document.getElementById("tab3Link");
+const tab1 = document.getElementById("tab1Link");
+const tab2 = document.getElementById("tab2Link");
+const tab3 = document.getElementById("tab3Link");
 
 function defaultHiddenTabs() {
     document.getElementById("tab2").style.display = "none";
     document.getElementById("tab3").style.display = "none";
 }
 
-function tabFunction(event){
-if (event.click == "tabOne") {
+function tabSwitch(event){
+if (event.click == "tab1") {
     event.preventDefault();
     console.log("you clicked tabone");
 }
-if (event.click == "tabTwo") {
+if (event.click == "tab2") {
     event.preventDefault();
     console.log("you clicked tabtwo");
 }
-if (event.click == "tabThree") {
+if (event.click == "tab3") {
     event.preventDefault();
     console.log("you clicked tabthree");
 }
 }
 
-tabOne.addEventListener("click", tabFunction);
-tabTwo.addEventListener("click", tabFunction);
-tabThree.addEventListener("click", tabFunction);
+tab1.addEventListener("click", tabSwitch);
+tab2.addEventListener("click", tabSwitch);
+tab3.addEventListener("click", tabSwitch);
